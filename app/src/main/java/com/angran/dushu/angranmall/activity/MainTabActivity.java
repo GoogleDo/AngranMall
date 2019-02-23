@@ -1,7 +1,9 @@
-package com.angran.dushu.angranmall;
+package com.angran.dushu.angranmall.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.angran.dushu.angranmall.R;
 
 public class MainTabActivity extends AppCompatActivity {
 
