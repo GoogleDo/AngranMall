@@ -4,21 +4,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 
-import org.kymjs.kjframe.KJActivity;
 
 /**
  * author: Create By dushu on 2019/2/16 21:15
  * email : dushu@bytedance.com
  */
-public class BaseActivity extends KJActivity {
+public class BaseActivity extends FragmentActivity {
 
     public static final String TAG = "BaseActivity";
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
+        initView();
+    }
+
+    //初始化UI
+    public void initView() {
+
     }
 
     @Override
@@ -49,12 +54,6 @@ public class BaseActivity extends KJActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-    }
-
-
-    @Override
-    public void setRootView() {
-
     }
 
     @Override

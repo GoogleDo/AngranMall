@@ -28,12 +28,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
 
-    api 'org.kymjs.kjframe:kjframe:2.6'
-    api 'com.kymjs.rxvolley:rxvolley:1.1.4'
-    api 'com.kymjs.rxvolley:okhttp3:1.1.4'
-    api 'com.kymjs.rxvolley:bitmapcore:1.1.4'
-
-
     // Retrofit库
 //    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     // Okhttp库

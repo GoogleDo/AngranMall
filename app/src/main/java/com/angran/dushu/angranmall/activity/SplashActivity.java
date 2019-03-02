@@ -1,11 +1,16 @@
 package com.angran.dushu.angranmall.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
+
+import com.angran.dushu.angranmall.config.PreferencesConfig;
+import com.angran.dushu.angranmall.login.RegisterActivity;
 
 import base.BaseActivity;
 
@@ -15,9 +20,10 @@ import base.BaseActivity;
  */
 public class SplashActivity extends BaseActivity {
 
+
     @Override
-    public void setRootView() {
-        super.setRootView();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // 设置没有标题栏
@@ -26,10 +32,15 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, MainTabActivity.class));
+                if (PreferencesConfig.getUserFromPreference() != null) {
+                    startActivity(new Intent(SplashActivity.this, MainTabActivity.class));
+                } else {
+                    startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
+                }
+
                 finish();
             }
-        }, 2000);
+        }, 500);
     }
 
     @Override
