@@ -26,5 +26,6 @@
         android:textSize="15sp"
         android:textColor="@color/title_color"
         android:textStyle="bold"
+        android:visibility="gone"
         android:text="Title" />
 </RelativeLayout>
