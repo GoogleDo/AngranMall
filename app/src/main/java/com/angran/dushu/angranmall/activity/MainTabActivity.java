@@ -28,19 +28,20 @@ public class MainTabActivity extends BaseActivity {
     private IndicatorViewPager indicatorViewPager;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_tab);
+
     }
 
 
     @Override
     public void initView() {
         super.initView();
-
+        setContentView(R.layout.activity_main_tab);
         viewPager = findViewById(R.id.tabmain_viewPager);
         indicator = findViewById(R.id.tabmain_indicator);
-        indicator.setOnTransitionListener(new OnTransitionTextListener().setColor(Color.RED, Color.GRAY));
+        indicator.setOnTransitionListener(new OnTransitionTextListener().setColor(getResources().getColor(R.color.tab_text_selected_color),
+                getResources().getColor(R.color.tab_text_color)));
 
         indicatorViewPager = new IndicatorViewPager(indicator, viewPager);
         indicatorViewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));

@@ -20,6 +20,7 @@ public class GeneralTitleBar extends RelativeLayout {
 
     private ImageView ivBackBtn;
     private TextView tvTitleText;
+    private TextView tvRightBtn;
 
 
     public GeneralTitleBar(Context context) {
@@ -36,23 +37,40 @@ public class GeneralTitleBar extends RelativeLayout {
     private void initView() {
         ivBackBtn = findViewById(R.id.iv_back_left);
         tvTitleText = findViewById(R.id.tv_title_text);
+        tvRightBtn = findViewById(R.id.tv_right_btn);
+    }
+
+    public void setLeftButtonImage(int id) {
+        if (ivBackBtn != null) {
+            ivBackBtn.setImageResource(id);
+        }
+    }
+
+    public void setRightText(String rightText) {
+        if (tvRightBtn != null) {
+            tvRightBtn.setVisibility(View.VISIBLE);
+            tvRightBtn.setText(rightText);
+        }
     }
 
     // 为左侧返回按钮添加自定义点击事件
-     public void setLeftButtonListener(OnClickListener listener) {
-         ivBackBtn.setOnClickListener(listener);
+    public void setLeftButtonListener(OnClickListener listener) {
+        ivBackBtn.setOnClickListener(listener);
+    }
+
+    // 为右侧返回按钮添加自定义点击事件
+    public void setRightButtonListener(OnClickListener listener) {
+        tvRightBtn.setOnClickListener(listener);
     }
 
     public GeneralTitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-// 设置标题的方法
-     public void setTitleText(String title) {
-         if (!tvTitleText.isShown()) {
-             tvTitleText.setVisibility(View.VISIBLE);
-         }
-         tvTitleText.setText(title);
+    // 设置标题的方法
+    public void setTitleText(String title) {
+        tvTitleText.setVisibility(View.VISIBLE);
+        tvTitleText.setText(title);
     }
 
 

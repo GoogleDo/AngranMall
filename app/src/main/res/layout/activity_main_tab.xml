@@ -7,15 +7,21 @@
 
     <com.shizhefei.view.viewpager.SViewPager
         android:id="@+id/tabmain_viewPager"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#eee" />
+        android:layout_weight="1" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/login_hint_color" />
 
     <com.shizhefei.view.indicator.FixedIndicatorView
         android:id="@+id/tabmain_indicator"
         android:layout_width="match_parent"
         android:layout_height="49dp"
-        android:background="#fff"/>
+        android:background="@color/white">
+    </com.shizhefei.view.indicator.FixedIndicatorView>
 
 </LinearLayout>

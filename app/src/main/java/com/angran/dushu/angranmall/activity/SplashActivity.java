@@ -10,6 +10,7 @@ import android.view.WindowManager;
 
 
 import com.angran.dushu.angranmall.config.PreferencesConfig;
+import com.angran.dushu.angranmall.login.LoginActivity;
 import com.angran.dushu.angranmall.login.RegisterActivity;
 
 import base.BaseActivity;
@@ -22,7 +23,7 @@ public class SplashActivity extends BaseActivity {
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -35,7 +36,7 @@ public class SplashActivity extends BaseActivity {
                 if (PreferencesConfig.getUserFromPreference() != null) {
                     startActivity(new Intent(SplashActivity.this, MainTabActivity.class));
                 } else {
-                    startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 }
 
                 finish();
