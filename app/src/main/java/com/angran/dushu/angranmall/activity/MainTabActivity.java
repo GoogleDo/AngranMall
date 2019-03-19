@@ -1,6 +1,5 @@
 package com.angran.dushu.angranmall.activity;
 
-import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,10 +7,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.angran.dushu.angranmall.R;
 import com.angran.dushu.angranmall.fragment.home_fragment.MainFragment;
+import com.angran.dushu.angranmall.fragment.member_fragment.MemberFragment;
+import com.angran.dushu.angranmall.fragment.mine_fragment.MineFragment;
+import com.angran.dushu.angranmall.fragment.msg_fragment.MessageFragment;
 import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.IndicatorViewPager;
 import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
@@ -27,10 +30,12 @@ public class MainTabActivity extends BaseActivity {
     private FixedIndicatorView indicator;
     private IndicatorViewPager indicatorViewPager;
 
+    private LinearLayout lySearch;
+    private TextView tvMade;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
 
@@ -38,6 +43,24 @@ public class MainTabActivity extends BaseActivity {
     public void initView() {
         super.initView();
         setContentView(R.layout.activity_main_tab);
+
+        lySearch = findViewById(R.id.ly_search);
+        lySearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //直接跳转搜索页
+
+            }
+        });
+
+        tvMade = findViewById(R.id.tv_made);
+        tvMade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //直接跳转定制页
+            }
+        });
+
         viewPager = findViewById(R.id.tabmain_viewPager);
         indicator = findViewById(R.id.tabmain_indicator);
         indicator.setOnTransitionListener(new OnTransitionTextListener().setColor(getResources().getColor(R.color.tab_text_selected_color),
@@ -70,7 +93,7 @@ public class MainTabActivity extends BaseActivity {
         @Override
         public View getViewForTab(int position, View convertView, ViewGroup container) {
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.tab_main, container, false);
+                convertView = inflater.inflate(R.layout.tab_widght_main, container, false);
             }
             TextView textView = (TextView) convertView;
             textView.setText(tabNames[position]);
@@ -80,12 +103,19 @@ public class MainTabActivity extends BaseActivity {
 
         @Override
         public Fragment getFragmentForPage(int position) {
-            MainFragment mainFragment = new MainFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString(MainFragment.INTENT_STRING_TABNAME, tabNames[position]);
-            bundle.putInt(MainFragment.INTENT_INT_INDEX, position);
-            mainFragment.setArguments(bundle);
-            return mainFragment;
+            switch (position) {
+                case 0:
+                    MainFragment mainFragment = new MainFragment();
+                    return mainFragment;
+                case 1:
+                    return new MessageFragment();
+                case 2:
+                    return new MemberFragment();
+                case 3:
+                    return new MineFragment();
+            }
+
+            return null;
         }
     }
 }
