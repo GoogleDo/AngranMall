@@ -19,5 +19,6 @@
     <color name="more_text_color">#565656</color>
     <color name="up_number_text_color">#F39800</color>
     <color name="down_number_text_color">#22AC38</color>
+    <color name="mine_divier">#DBDBDB</color>
 
 </resources>

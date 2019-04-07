@@ -2,6 +2,7 @@ package com.angran.dushu.angranmall.fragment.mine_fragment;
 
 import android.os.Bundle;
 
+import com.angran.dushu.angranmall.R;
 import com.shizhefei.fragment.LazyFragment;
 
 /**
@@ -15,5 +16,7 @@ public class MineFragment extends LazyFragment {
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
+        setContentView(R.layout.fragment_mine);
     }
+
 }

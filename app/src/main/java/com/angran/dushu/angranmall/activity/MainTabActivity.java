@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class MainTabActivity extends BaseActivity {
     private IndicatorViewPager indicatorViewPager;
 
     private LinearLayout lySearch;
+    private LinearLayout lySearchTitleBar;
     private TextView tvMade;
 
     @Override
@@ -43,6 +45,8 @@ public class MainTabActivity extends BaseActivity {
     public void initView() {
         super.initView();
         setContentView(R.layout.activity_main_tab);
+
+        lySearchTitleBar = findViewById(R.id.ly_title_bar);
 
         lySearch = findViewById(R.id.ly_search);
         lySearch.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +76,27 @@ public class MainTabActivity extends BaseActivity {
         viewPager.setCanScroll(false);
         // 设置viewpager保留界面不重新加载的页面数量
         viewPager.setOffscreenPageLimit(4);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    lySearchTitleBar.setVisibility(View.VISIBLE);
+                } else {
+                    lySearchTitleBar.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private class MyAdapter extends IndicatorViewPager.IndicatorFragmentPagerAdapter {

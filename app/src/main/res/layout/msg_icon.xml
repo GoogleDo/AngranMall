@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="27dp"
+    android:layout_height="25dp"
+    android:padding="1dp"
+    android:background="@android:color/transparent"
+    android:id="@+id/ly_msg_icon">
+
+    
+    <ImageView
+        android:layout_width="19dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/msg_icon"
+        android:scaleType="centerCrop"
+        />
+    
+    <ImageView
+        android:id="@+id/iv_msg_tips"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/msg_tips_red"
+        android:scaleType="centerCrop"
+        android:visibility="visible"/>
+
+
+</RelativeLayout>
