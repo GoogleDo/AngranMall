@@ -30,6 +30,9 @@
             android:id="@+id/srl_main_feed"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:fadeScrollbars="true"
+            android:scrollbars="none"
             android:overScrollMode="never">
 
             <LinearLayout
@@ -49,9 +52,10 @@
 
                     <com.shizhefei.view.indicator.FixedIndicatorView
                         android:id="@+id/banner_indicator"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom" />
+                        android:layout_width="35dp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_marginBottom="15dp" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -506,9 +510,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_member_title"
-                        android:fadeScrollbars="true"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="22dp">
+                        android:layout_marginTop="22dp"
+                        android:fadeScrollbars="true"
+                        android:scrollbars="none"
+                        android:overScrollMode="never">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -592,14 +598,234 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp">
+                    android:layout_marginTop="7dp"
+                    android:background="@color/white">
 
-                    <ImageView
+                    <TextView
+                        android:id="@+id/tv_gold_enterprise_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="金牌企业"
+                        android:textColor="@color/title_color"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_gold_enterprise_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="27dp"
+                        android:layout_marginRight="20dp"
+                        android:text="查看更多>"
+                        android:textColor="@color/more_text_color"
+                        android:textSize="13sp" />
+
+
+                    <HorizontalScrollView
+                        android:id="@+id/hlist_gold_enterprises"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/company"
-                        android:scaleType="centerCrop"/>
+                        android:layout_below="@id/tv_gold_enterprise_title"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="22dp"
+                        android:fadeScrollbars="true"
+                        android:scrollbars="none"
+                        android:overScrollMode="never">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="63dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:orientation="vertical">
+
+                                <com.angran.dushu.angranmall.view.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_marginRight="7dp"
+                                    android:src="@drawable/avatar" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:singleLine="true"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    android:text="山西焦煤"
+                                    android:textColor="@color/more_text_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="63dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:orientation="vertical">
+
+                                <com.angran.dushu.angranmall.view.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_marginRight="7dp"
+                                    android:src="@drawable/avatar" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:singleLine="true"
+                                    android:gravity="center_horizontal"
+                                    android:text="鄂尔多斯煤炭"
+                                    android:textColor="@color/more_text_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="63dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:orientation="vertical">
+
+                                <com.angran.dushu.angranmall.view.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_marginRight="7dp"
+                                    android:src="@drawable/avatar" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:singleLine="true"
+                                    android:gravity="center_horizontal"
+                                    android:text="灵石县焦煤"
+                                    android:textColor="@color/more_text_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="63dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:orientation="vertical">
+
+                                <com.angran.dushu.angranmall.view.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_marginRight="7dp"
+                                    android:src="@drawable/avatar" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:singleLine="true"
+                                    android:gravity="center_horizontal"
+                                    android:text="鸡西焦煤"
+                                    android:textColor="@color/more_text_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="63dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:orientation="vertical">
+
+                                <com.angran.dushu.angranmall.view.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_marginRight="7dp"
+                                    android:src="@drawable/avatar" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:singleLine="true"
+                                    android:gravity="center_horizontal"
+                                    android:text="鹤岗焦煤"
+                                    android:textColor="@color/more_text_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="63dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:orientation="vertical">
+
+                                <com.angran.dushu.angranmall.view.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_marginRight="7dp"
+                                    android:src="@drawable/avatar" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:singleLine="true"
+                                    android:gravity="center_horizontal"
+                                    android:text="河北焦煤"
+                                    android:textColor="@color/more_text_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <ImageView
+                        android:id="@+id/iv_gold_enterprise"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_below="@id/hlist_gold_enterprises"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/avatar"/>
                 </RelativeLayout>
+
+
+                <com.shizhefei.view.indicator.ScrollIndicatorView
+                    android:id="@+id/goods_list_indicator"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@color/white"/>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/goods_list_viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
 
 
             </LinearLayout>

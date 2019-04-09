@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    
+    
+    <ImageView
+        android:id="@+id/iv_item_avater"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/list0"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:id="@+id/ly_goods_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_item_avater"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+        
+        
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="17dp"
+            android:src="@drawable/member"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:text="优质动力煤"
+            android:textColor="@color/title_color"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥289"
+            android:textSize="13sp"
+            android:textColor="@color/up_number_text_color"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_goods_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="府谷县 | 6000 打卡 0.6 硫 23 挥发"
+        android:textColor="@color/other_login_text_color"
+        android:textSize="13sp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="7dp"
+        android:singleLine="true"
+        android:layout_below="@id/ly_goods_title"
+        android:layout_alignLeft="@id/ly_goods_title"
+        />
+
+    <LinearLayout
+        android:id="@+id/ly_goods_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="6dp"
+        android:layout_below="@id/tv_goods_msg"
+        android:layout_alignLeft="@id/tv_goods_msg">
+        
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:src="@drawable/tag_1"
+            android:layout_marginRight="6dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:src="@drawable/tag_2"
+            android:layout_marginRight="6dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:src="@drawable/tag_3"
+            android:scaleType="centerCrop"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_goods_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/ly_goods_tags"
+        android:layout_alignLeft="@id/ly_goods_tags">
+
+        <TextView
+            android:id="@+id/tv_company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="榆林煤炭进出口集团"
+            android:textColor="@color/more_text_color"
+            android:textSize="13sp"
+            android:layout_marginRight="7dp"
+            />
+        <ImageView
+            android:id="@+id/iv_gold_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitStart"
+            android:src="@drawable/gold_medal"
+            />
+
+        <TextView
+            android:id="@+id/tv_goods_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="3天前"
+            android:textSize="10sp"
+            android:textColor="@color/login_hint_color"/>
+    </LinearLayout>
+
+</RelativeLayout>
