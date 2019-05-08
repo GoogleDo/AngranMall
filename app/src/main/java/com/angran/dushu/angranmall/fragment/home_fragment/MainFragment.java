@@ -6,19 +6,23 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.angran.dushu.angranmall.R;
 import com.angran.dushu.angranmall.utlis.CommenUtil;
 import com.angran.dushu.angranmall.utlis.DisplayUtil;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.shizhefei.fragment.LazyFragment;
 import com.shizhefei.view.indicator.BannerComponent;
 import com.shizhefei.view.indicator.Indicator;
@@ -29,6 +33,8 @@ import com.shizhefei.view.indicator.slidebar.ScrollBar;
 import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -49,6 +55,13 @@ public class MainFragment extends LazyFragment {
 
     private Activity activity;
 
+    private static boolean isFirstEnter = true;
+    private MainListAdapter mainListAdapterL;
+    private MainListAdapter mainListAdapterR;
+
+    //当前显示在前台的 viewpager 中的page的索引
+    private int mPageIndex = 0;
+
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
@@ -57,17 +70,78 @@ public class MainFragment extends LazyFragment {
 
         mRefreshLayout = (RefreshLayout) findViewById(R.id.refreshLayout);
         mRefreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
+        mRefreshLayout.setEnableFooterFollowWhenNoMoreData(true);
+
+        //第一次进入演示刷新
+        if (isFirstEnter) {
+            isFirstEnter = false;
+            mRefreshLayout.autoRefresh();
+        }
 
         activity = getActivity();
         initBanner();
         initRecyle();
 
+        mRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onRefresh(@NonNull final RefreshLayout refreshLayout) {
+                refreshLayout.getLayout().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refreshLayout.finishRefresh();
+                        refreshLayout.resetNoMoreData();//setNoMoreData(false);//恢复上拉状态
+                    }
+                }, 2000);
+            }
+
+            @Override
+            public void onLoadMore(@NonNull final RefreshLayout refreshLayout) {
+                refreshLayout.getLayout().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainListAdapter adapter;
+                        boolean isLeflList = mPageIndex == 0 ? true : false;
+                        if (isLeflList) {
+                            adapter = mainListAdapterL;
+                        } else {
+                            adapter = mainListAdapterR;
+                        }
+                        if (adapter.getItemCount() > 12) {
+                            Toast.makeText(getApplicationContext(), "数据全部加载完毕", Toast.LENGTH_SHORT).show();
+                            refreshLayout.finishLoadMoreWithNoMoreData();//设置之后，将不会再触发加载事件
+                        } else {
+                            adapter.addItem(loadMore(isLeflList));
+                            refreshLayout.finishLoadMore();
+                        }
+                    }
+
+                }, 1000);
+            }
+        });
+
     }
 
     private void initRecyle() {
         listViewPager = (ViewPager) findViewById(R.id.goods_list_viewPager);
-        //这里通过动态的给viewpager设置高度来解决srcollview、viewpager嵌套问题造成的viewpager不显示的问题
+        listViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mPageIndex = position;
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
+        //这里通过动态的给viewpager设置高度来解决srcollview、viewpager嵌套问题造成的viewpager不显示的问题
         int height = CommenUtil.getScreenHeight(activity) - CommenUtil.getStateBarHright(activity) - DisplayUtil.dipToPix(activity, 44);
 
         //为ViewPager设置高度
@@ -90,11 +164,12 @@ public class MainFragment extends LazyFragment {
 
     private ScrollBar getRecyleScrollBar() {
         ScrollBar scrollBar = new ColorBar(this.getContext(), 0xFFFBAB3E, 4);
-        ((ColorBar) scrollBar).setWidth(DisplayUtil.dipToPix(getContext(),63));
+        ((ColorBar) scrollBar).setWidth(DisplayUtil.dipToPix(getContext(), 63));
         return scrollBar;
     }
 
     private int[] images = {R.drawable.p1, R.drawable.p2, R.drawable.p3};
+
     private void initBanner() {
         bannerViewPager = (ViewPager) findViewById(R.id.banner_viewPager);
         bannerIndicator = (Indicator) findViewById(R.id.banner_indicator);
@@ -163,7 +238,8 @@ public class MainFragment extends LazyFragment {
 
     private class MyRecyleIndicatorAdapter extends IndicatorViewPager.IndicatorViewPagerAdapter {
         private String[] versions = {"推荐货源", "最新采购"};
-        private List<Integer> drawableID = new ArrayList<>();
+        private List<Integer> drawableIDL = new ArrayList<>();
+        private List<Integer> drawableIDR = new ArrayList<>();
 
         @Override
         public int getCount() {
@@ -196,18 +272,33 @@ public class MainFragment extends LazyFragment {
             RecyclerView recyclerView = (RecyclerView) convertView;
             //设置列表布局管理
             recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-            initData();
-            //设置适配器
-            recyclerView.setAdapter(new MainListAdapter(drawableID ,getContext()));
+            initData(position);
+            if (position == 0) {
+                //设置适配器
+                recyclerView.setAdapter(mainListAdapterL = new MainListAdapter(drawableIDL, getContext()));
+            } else {
+                //设置适配器
+                recyclerView.setAdapter(mainListAdapterR = new MainListAdapter(drawableIDR, getContext()));
+            }
+
 
             return convertView;
         }
 
-        private void initData() {
-            drawableID.add(R.drawable.list1);
-            drawableID.add(R.drawable.list2);
-            drawableID.add(R.drawable.list3);
-            drawableID.add(R.drawable.list4);
+        private void initData(int position) {
+            if (position == 0) {
+                drawableIDL.add(R.drawable.list1);
+                drawableIDL.add(R.drawable.list2);
+                drawableIDL.add(R.drawable.list1);
+                drawableIDL.add(R.drawable.list1);
+                drawableIDL.add(R.drawable.list2);
+            } else {
+                drawableIDR.add(R.drawable.list3);
+                drawableIDR.add(R.drawable.list4);
+                drawableIDR.add(R.drawable.list3);
+                drawableIDR.add(R.drawable.list3);
+                drawableIDR.add(R.drawable.list4);
+            }
         }
 
         @Override
@@ -229,6 +320,24 @@ public class MainFragment extends LazyFragment {
             return width;
         }
 
+    }
+
+    private List<Integer> loadMore(boolean isLeftList) {
+        List<Integer> list = new ArrayList<>();
+        if (isLeftList) {
+            list.add(R.drawable.list1);
+            list.add(R.drawable.list2);
+            list.add(R.drawable.list1);
+            list.add(R.drawable.list1);
+            list.add(R.drawable.list2);
+        } else {
+            list.add(R.drawable.list3);
+            list.add(R.drawable.list4);
+            list.add(R.drawable.list3);
+            list.add(R.drawable.list3);
+            list.add(R.drawable.list4);
+        }
+        return list;
     }
 
 }

@@ -3,6 +3,7 @@ package com.angran.dushu.angranmall.fragment.home_fragment;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolde
         this.mDatas = mDatas;
         this.context = context;
         inflater = LayoutInflater.from(context);
+        Log.e("MainListAdapter", "ItemCount = "+getItemCount());
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -34,9 +36,9 @@ class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolde
     }
 
     public interface OnItemClickListener {
-        public void OnItemClick(View itemView, int position);
+        void OnItemClick(View itemView, int position);
 
-        public void onItemLongClick(View itemView, int position);
+        void onItemLongClick(View itemView, int position);
     }
 
     @NonNull
@@ -63,14 +65,18 @@ class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolde
             @Override
             public void onClick(View v) {
                 int pos = holder.getLayoutPosition();    //获取当前获得焦点的位置
-                listener.OnItemClick(holder.itemView,pos);
+                if (listener != null) {
+                    listener.OnItemClick(holder.itemView,pos);
+                }
             }
         });
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 int pos = holder.getLayoutPosition();
-                listener.onItemLongClick(holder.itemView,pos);
+                if (listener != null) {
+                    listener.onItemLongClick(holder.itemView,pos);
+                }
                 return false;
             }
         });
@@ -94,7 +100,7 @@ class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolde
     }
 
     /**
-     * 增加数据的方法
+     * 插入数据的方法 (带索引)
      */
     public void addItem(int pos, int obj) {
         mDatas.add(pos, obj);
@@ -102,6 +108,14 @@ class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolde
         notifyItemInserted(pos);
     }
 
+    /**
+     * 增加数据的方法 (不带索引)
+     */
+    public void addItem(List<Integer> list) {
+        mDatas.addAll(list);
+        //增加数据，并且提示更新
+        notifyDataSetChanged();
+    }
     /**
      * 移除数据
      */

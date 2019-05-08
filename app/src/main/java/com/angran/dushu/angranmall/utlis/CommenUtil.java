@@ -36,6 +36,9 @@ public class CommenUtil {
         return height;
     }
 
+    /**
+     * 获取状态栏高度
+     */
     public static int getStateBarHright(Context context) {
         Class c = null;
         try {
