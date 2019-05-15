@@ -2,6 +2,7 @@ package com.angran.dushu.angranmall.fragment.home_fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.angran.dushu.angranmall.R;
+import com.angran.dushu.angranmall.details.DetailsActivity;
 import com.angran.dushu.angranmall.utlis.CommenUtil;
 import com.angran.dushu.angranmall.utlis.DisplayUtil;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -276,13 +278,42 @@ public class MainFragment extends LazyFragment {
             if (position == 0) {
                 //设置适配器
                 recyclerView.setAdapter(mainListAdapterL = new MainListAdapter(drawableIDL, getContext()));
+                mainListAdapterL.setOnItemClickListener(new MainListAdapter.OnItemClickListener() {
+
+                    @Override
+                    public void OnItemClick(View itemView, int position) {
+                        jumpToDetails(itemView,position);
+                    }
+
+                    @Override
+                    public void onItemLongClick(View itemView, int position) {
+
+                    }
+                });
             } else {
                 //设置适配器
                 recyclerView.setAdapter(mainListAdapterR = new MainListAdapter(drawableIDR, getContext()));
+                mainListAdapterL.setOnItemClickListener(new MainListAdapter.OnItemClickListener() {
+                    @Override
+                    public void OnItemClick(View itemView, int position) {
+                        jumpToDetails(itemView,position);
+                    }
+
+                    @Override
+                    public void onItemLongClick(View itemView, int position) {
+
+                    }
+                });
             }
 
 
             return convertView;
+        }
+
+        //跳转到商品详情页
+        private void jumpToDetails(View itemView, int position) {
+            Intent intent = new Intent(getActivity(), DetailsActivity.class);
+            startActivity(intent);
         }
 
         private void initData(int position) {

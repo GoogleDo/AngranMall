@@ -18,7 +18,9 @@
     <color name="red_text_color">#CC0238</color>
     <color name="more_text_color">#565656</color>
     <color name="up_number_text_color">#F39800</color>
+    <color name="yellow_text_color">#FBAB3E</color>
     <color name="down_number_text_color">#22AC38</color>
+    <color name="bule_bg_color">#2873FF</color>
     <color name="mine_divier">#DBDBDB</color>
 
 </resources>

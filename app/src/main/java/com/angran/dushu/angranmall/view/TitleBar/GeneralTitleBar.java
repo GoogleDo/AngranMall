@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ public class GeneralTitleBar extends RelativeLayout {
     private ImageView ivBackBtn;
     private TextView tvTitleText;
     private TextView tvRightBtn;
+    private FrameLayout flRight;
 
 
     public GeneralTitleBar(Context context) {
@@ -38,6 +40,7 @@ public class GeneralTitleBar extends RelativeLayout {
         ivBackBtn = findViewById(R.id.iv_back_left);
         tvTitleText = findViewById(R.id.tv_title_text);
         tvRightBtn = findViewById(R.id.tv_right_btn);
+        flRight = findViewById(R.id.fl_right);
     }
 
     public void setLeftButtonImage(int id) {
@@ -71,6 +74,14 @@ public class GeneralTitleBar extends RelativeLayout {
     public void setTitleText(String title) {
         tvTitleText.setVisibility(View.VISIBLE);
         tvTitleText.setText(title);
+    }
+
+
+    public void setRightLayout(View v) {
+        if (v != null) {
+            flRight.setVisibility(View.VISIBLE);
+            flRight.addView(v);
+        }
     }
 
 

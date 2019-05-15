@@ -31,6 +31,9 @@
         <activity android:name=".login.LoginActivity"
             android:launchMode="singleTop"
             />
+
+        <activity android:name=".details.DetailsActivity"
+            />
     </application>
 
 </manifest>
