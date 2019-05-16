@@ -1,5 +1,6 @@
 package com.angran.dushu.angranmall.activity;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +17,7 @@ import com.angran.dushu.angranmall.fragment.home_fragment.MainFragment;
 import com.angran.dushu.angranmall.fragment.member_fragment.MemberFragment;
 import com.angran.dushu.angranmall.fragment.mine_fragment.MineFragment;
 import com.angran.dushu.angranmall.fragment.msg_fragment.MessageFragment;
+import com.angran.dushu.angranmall.view.DragFloatActionButton;
 import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.IndicatorViewPager;
 import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
@@ -34,6 +36,8 @@ public class MainTabActivity extends BaseActivity {
     private LinearLayout lySearch;
     private LinearLayout lySearchTitleBar;
     private TextView tvMade;
+
+    private DragFloatActionButton dfaBtn;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,6 +101,14 @@ public class MainTabActivity extends BaseActivity {
 
             }
         });
+        dfaBtn = findViewById(R.id.dfa_btn);
+        dfaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(MainTabActivity.this,);
+            }
+        });
+
     }
 
     private class MyAdapter extends IndicatorViewPager.IndicatorFragmentPagerAdapter {

@@ -56,13 +56,29 @@
 
     </LinearLayout>
 
-
-    <com.shizhefei.view.viewpager.SViewPager
-        android:id="@+id/tabmain_viewPager"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white" />
+        android:layout_weight="1">
+
+        <com.shizhefei.view.viewpager.SViewPager
+            android:id="@+id/tabmain_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+
+        <com.angran.dushu.angranmall.view.DragFloatActionButton
+            android:id="@+id/dfa_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_search"
+            app:backgroundTint="@color/colorPrimaryDark"/>
+
+    </FrameLayout>
+
 
     <View
         android:id="@+id/divider"
