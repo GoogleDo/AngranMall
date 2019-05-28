@@ -37,6 +37,8 @@
 
         <activity android:name=".release.PurchaseOrderActivity"
             />
+        <activity android:name=".release.QuotationPricesActivity"
+            />
     </application>
 
 </manifest>

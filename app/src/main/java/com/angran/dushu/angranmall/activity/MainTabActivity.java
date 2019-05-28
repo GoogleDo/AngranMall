@@ -21,6 +21,7 @@ import com.angran.dushu.angranmall.fragment.member_fragment.MemberFragment;
 import com.angran.dushu.angranmall.fragment.mine_fragment.MineFragment;
 import com.angran.dushu.angranmall.fragment.msg_fragment.MessageFragment;
 import com.angran.dushu.angranmall.release.PurchaseOrderActivity;
+import com.angran.dushu.angranmall.release.QuotationPricesActivity;
 import com.angran.dushu.angranmall.view.DragFloatActionButton;
 import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.IndicatorViewPager;
@@ -119,16 +120,18 @@ public class MainTabActivity extends BaseActivity {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
+                        Intent intent = new Intent();
                         switch (menuItem.getItemId()){
                             case R.id.release_product:
                                 Log.e(TAG,"0");
                                 break;
                             case R.id.release_buys:
-                                Intent intent = new Intent(MainTabActivity.this, PurchaseOrderActivity.class);
+                                intent.setClass(MainTabActivity.this, PurchaseOrderActivity.class);
                                 startActivity(intent);
                                 break;
                             case R.id.release_prices:
-                                Log.e(TAG,"2");
+                                intent.setClass(MainTabActivity.this, QuotationPricesActivity.class);
+                                startActivity(intent);
                                 break;
                         }
 
