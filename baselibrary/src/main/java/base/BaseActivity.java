@@ -13,7 +13,7 @@ import android.support.v4.app.FragmentActivity;
  */
 public class BaseActivity extends FragmentActivity {
 
-    public static final String TAG = "BaseActivity";
+    private static final String TAG = "BaseActivity";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

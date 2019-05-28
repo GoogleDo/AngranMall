@@ -15,6 +15,7 @@ import android.view.animation.DecelerateInterpolator;
  * 可拖拽的悬浮按钮
  */
 public class DragFloatActionButton extends FloatingActionButton {
+    private static final String TAG = "DragFloatActionButton";
 
     private int parentHeight;
     private int parentWidth;
@@ -106,13 +107,13 @@ public class DragFloatActionButton extends FloatingActionButton {
                 }
                 break;
         }
-        //如果是拖拽则消s耗事件，否则正常传递即可。
+
+        //如果是拖拽则消耗事件，否则正常传递即可。
         return !isNotDrag() || super.onTouchEvent(event);
     }
 
     private boolean isNotDrag() {
-        return !isDrag && (getX() == 0
-                || (getX() == parentWidth - getWidth()));
+        return !isDrag ;
     }
 
     public int getMargin() {

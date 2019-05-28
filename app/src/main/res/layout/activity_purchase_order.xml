@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <com.angran.dushu.angranmall.view.TitleBar.GeneralTitleBar
+        android:id="@+id/purchase_order_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_item_avater"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/list0" />
+
+        <LinearLayout
+            android:id="@+id/ly_goods_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/iv_item_avater"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="49dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/member" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:text="优质动力煤"
+                android:textColor="@color/title_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥289"
+                android:textColor="@color/up_number_text_color"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_goods_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ly_goods_title"
+            android:layout_alignLeft="@id/ly_goods_title"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:text="府谷县 | 6000 打卡 0.6 硫 23 挥发"
+            android:textColor="@color/other_login_text_color"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/ly_goods_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_goods_msg"
+            android:layout_alignLeft="@id/tv_goods_msg"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginRight="6dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tag_1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginRight="6dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tag_2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tag_3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_goods_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ly_goods_tags"
+            android:layout_alignLeft="@id/ly_goods_tags"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:text="榆林煤炭进出口集团"
+                android:textColor="@color/more_text_color"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/iv_gold_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:scaleType="fitStart"
+                android:src="@drawable/gold_medal" />
+
+            <TextView
+                android:id="@+id/tv_goods_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="3天前"
+                android:textColor="@color/login_hint_color"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/mine_divier" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="31dp"
+            android:layout_marginRight="45dp"
+            android:gravity="center"
+            android:text="采购数量"
+            android:textColor="@color/login_code_text_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_choose_goods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="选择您要卖的商品"
+            android:textColor="@color/tab_text_color"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/mine_divier" />
+
+    <LinearLayout
+        android:id="@+id/ly_logistics"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="31dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="物流"
+            android:textColor="@color/login_code_text_color"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/right_to" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/mine_divier" />
+
+    <LinearLayout
+        android:id="@+id/ly_add_service"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="31dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="添加服务"
+            android:textColor="@color/login_code_text_color"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/right_to" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/mine_divier" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/tv_pay_ways"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="21dp"
+            android:gravity="center_vertical"
+            android:text="交易方式"
+            android:textColor="@color/login_code_text_color"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/ly_pay_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_pay_ways"
+            android:layout_alignStart="@id/tv_pay_ways"
+            android:background="@drawable/order_bg_select"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:text="直接采购"
+                android:textColor="@color/order_pay_ways_text_color_1"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="13dp"
+                android:text="免费对接"
+                android:textColor="@color/order_pay_ways_text_color_1"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_pay_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_pay_ways"
+            android:layout_toRightOf="@id/ly_pay_1"
+            android:layout_marginLeft="11dp"
+            android:background="@drawable/order_bg_unselect"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:text="担保交易"
+                android:textColor="@color/more_text_color"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="13dp"
+                android:text="第三方监管资金"
+                android:textColor="@color/tab_text_color"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_pay_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_pay_ways"
+            android:layout_toRightOf="@id/ly_pay_2"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/order_bg_unselect"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:text="供应链服务"
+                android:textColor="@color/more_text_color"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="13dp"
+                android:text="仅需20%定金"
+                android:textColor="@color/tab_text_color"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    
+    <Button
+        android:id="@+id/btn_release"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:text="确认发布"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@color/yellow_text_color"/>
+
+    <TextView
+        android:id="@+id/tv_release_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="不知道怎么发布？点击查看 发布指南>>"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        android:textColor="@color/other_login_text_color"/>
+
+
+</LinearLayout>

@@ -504,6 +504,10 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/mine_divier" />
 
             <LinearLayout
                 android:id="@+id/ly_join_activities"
@@ -560,10 +564,6 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/mine_divier" />
 
             <LinearLayout
                 android:id="@+id/ly_sunshine"

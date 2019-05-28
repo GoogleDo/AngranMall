@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.PopupMenu;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -17,6 +20,7 @@ import com.angran.dushu.angranmall.fragment.home_fragment.MainFragment;
 import com.angran.dushu.angranmall.fragment.member_fragment.MemberFragment;
 import com.angran.dushu.angranmall.fragment.mine_fragment.MineFragment;
 import com.angran.dushu.angranmall.fragment.msg_fragment.MessageFragment;
+import com.angran.dushu.angranmall.release.PurchaseOrderActivity;
 import com.angran.dushu.angranmall.view.DragFloatActionButton;
 import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.IndicatorViewPager;
@@ -24,10 +28,13 @@ import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 import com.shizhefei.view.viewpager.SViewPager;
 
 
+import java.util.logging.Logger;
+
 import base.BaseActivity;
 
 public class MainTabActivity extends BaseActivity {
 
+    private static final String TAG = "MainTabActivity";
 
     private SViewPager viewPager;
     private FixedIndicatorView indicator;
@@ -91,8 +98,10 @@ public class MainTabActivity extends BaseActivity {
             public void onPageSelected(int position) {
                 if (position == 0) {
                     lySearchTitleBar.setVisibility(View.VISIBLE);
+                    dfaBtn.setVisibility(View.VISIBLE);
                 } else {
                     lySearchTitleBar.setVisibility(View.GONE);
+                    dfaBtn.setVisibility(View.GONE);
                 }
             }
 
@@ -105,7 +114,30 @@ public class MainTabActivity extends BaseActivity {
         dfaBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(MainTabActivity.this,);
+                PopupMenu popupMenu=new PopupMenu(MainTabActivity.this,dfaBtn);
+                getMenuInflater().inflate(R.menu.pop_item,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()){
+                            case R.id.release_product:
+                                Log.e(TAG,"0");
+                                break;
+                            case R.id.release_buys:
+                                Intent intent = new Intent(MainTabActivity.this, PurchaseOrderActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.release_prices:
+                                Log.e(TAG,"2");
+                                break;
+                        }
+
+                        return false;
+                    }
+                });
+                popupMenu.show();
+                Log.e("****--->","float");
+
             }
         });
 

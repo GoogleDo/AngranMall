@@ -23,6 +23,7 @@ public class GeneralTitleBar extends RelativeLayout {
     private TextView tvTitleText;
     private TextView tvRightBtn;
     private FrameLayout flRight;
+    private View dividerLine;
 
 
     public GeneralTitleBar(Context context) {
@@ -41,6 +42,7 @@ public class GeneralTitleBar extends RelativeLayout {
         tvTitleText = findViewById(R.id.tv_title_text);
         tvRightBtn = findViewById(R.id.tv_right_btn);
         flRight = findViewById(R.id.fl_right);
+        dividerLine = findViewById(R.id.divider_line);
     }
 
     public void setLeftButtonImage(int id) {
@@ -76,6 +78,13 @@ public class GeneralTitleBar extends RelativeLayout {
         tvTitleText.setText(title);
     }
 
+    public void showDivierLine(boolean show) {
+        if (show) {
+            dividerLine.setVisibility(View.VISIBLE);
+        } else {
+            dividerLine.setVisibility(View.GONE);
+        }
+    }
 
     public void setRightLayout(View v) {
         if (v != null) {
