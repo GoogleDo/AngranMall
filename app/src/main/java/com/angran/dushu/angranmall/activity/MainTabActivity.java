@@ -22,6 +22,7 @@ import com.angran.dushu.angranmall.fragment.mine_fragment.MineFragment;
 import com.angran.dushu.angranmall.fragment.msg_fragment.MessageFragment;
 import com.angran.dushu.angranmall.release.PurchaseOrderActivity;
 import com.angran.dushu.angranmall.release.QuotationPricesActivity;
+import com.angran.dushu.angranmall.release.ReleaseGoodsActivity;
 import com.angran.dushu.angranmall.view.DragFloatActionButton;
 import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.IndicatorViewPager;
@@ -123,7 +124,8 @@ public class MainTabActivity extends BaseActivity {
                         Intent intent = new Intent();
                         switch (menuItem.getItemId()){
                             case R.id.release_product:
-                                Log.e(TAG,"0");
+                                intent.setClass(MainTabActivity.this, ReleaseGoodsActivity.class);
+                                startActivity(intent);
                                 break;
                             case R.id.release_buys:
                                 intent.setClass(MainTabActivity.this, PurchaseOrderActivity.class);
