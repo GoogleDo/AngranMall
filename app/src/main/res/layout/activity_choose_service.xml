@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <com.angran.dushu.angranmall.view.TitleBar.GeneralTitleBar
+        android:id="@+id/choose_service_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="22dp"
+        android:text="温馨提示："
+        android:textColor="@color/login_code_text_color"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="34dp"
+        android:text="      请选择您需要的服务内容（可多选或不选），盎然提供必要的帮助与协作，助力交易诚信和效率。"
+        android:textColor="@color/login_code_text_color"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="22dp"
+        android:text="添加申请"
+        android:textColor="@color/login_code_text_color"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_finance_service"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="28dp"
+                android:background="@drawable/bg_text_tag"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="金融服务"
+                android:textColor="@color/more_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_logistics_service"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tv_finance_service"
+                android:background="@drawable/bg_text_tag"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="物流服务"
+                android:textColor="@color/more_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_test_service"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tv_logistics_service"
+                android:background="@drawable/bg_text_tag"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="化验服务"
+                android:textColor="@color/more_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_credibility_service"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@id/tv_finance_service"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_text_tag"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="诚信保障"
+                android:textColor="@color/more_text_color"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_is_sure"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_login_btn"
+            android:text="选好了"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

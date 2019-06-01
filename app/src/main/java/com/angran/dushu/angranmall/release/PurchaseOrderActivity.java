@@ -1,5 +1,6 @@
 package com.angran.dushu.angranmall.release;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.text.Spannable;
@@ -8,6 +9,7 @@ import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +29,23 @@ public class PurchaseOrderActivity extends BaseActivity {
     private GeneralTitleBar titleBar;
 
     private TextView tvReleaseGuide;
+    private LinearLayout lyAddService;
 
     @Override
     public void initView() {
         super.initView();
         setContentView(R.layout.activity_purchase_order);
         initTitleBar();
+
+        lyAddService = findViewById(R.id.ly_add_service);
+        lyAddService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PurchaseOrderActivity.this, ChooseServiceActvity.class));
+            }
+        });
+
+
 
         tvReleaseGuide = findViewById(R.id.tv_release_guide);
         SpannableString spStr = new SpannableString(tvReleaseGuide.getText());

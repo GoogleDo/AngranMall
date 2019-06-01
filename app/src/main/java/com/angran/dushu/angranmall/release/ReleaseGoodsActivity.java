@@ -1,5 +1,6 @@
 package com.angran.dushu.angranmall.release;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.text.Spannable;
@@ -28,11 +29,22 @@ public class ReleaseGoodsActivity extends BaseActivity {
 
     private TextView tvReleaseGuide;
 
+    private TextView tvDiscount;
+
     @Override
     public void initView() {
         super.initView();
         setContentView(R.layout.activity_release_goods);
         initTitleBar();
+
+        tvDiscount = findViewById(R.id.tv_discount);
+        tvDiscount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ReleaseGoodsActivity.this, DiscountActvity.class);
+                startActivity(i);
+            }
+        });
 
         tvReleaseGuide = findViewById(R.id.tv_release_guide);
         SpannableString spStr = new SpannableString(tvReleaseGuide.getText());

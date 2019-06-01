@@ -41,6 +41,8 @@
             />
         <activity android:name=".release.ReleaseGoodsActivity"
             />
+        <activity android:name=".release.DiscountActvity"
+            />
     </application>
 
 </manifest>
