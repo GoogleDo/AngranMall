@@ -16,11 +16,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.angran.dushu.angranmall.R;
 import com.angran.dushu.angranmall.details.DetailsActivity;
+import com.angran.dushu.angranmall.product.AllPreductActivity;
 import com.angran.dushu.angranmall.utlis.CommenUtil;
 import com.angran.dushu.angranmall.utlis.DisplayUtil;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -61,6 +63,8 @@ public class MainFragment extends LazyFragment {
     private MainListAdapter mainListAdapterL;
     private MainListAdapter mainListAdapterR;
 
+    private LinearLayout lyHy;//全部货源
+
     //当前显示在前台的 viewpager 中的page的索引
     private int mPageIndex = 0;
 
@@ -68,6 +72,15 @@ public class MainFragment extends LazyFragment {
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
         setContentView(R.layout.fragment_tabmain);
+
+
+        lyHy = (LinearLayout) findViewById(R.id.ly_hy);
+        lyHy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(activity, AllPreductActivity.class));
+            }
+        });
 
 
         mRefreshLayout = (RefreshLayout) findViewById(R.id.refreshLayout);
@@ -282,7 +295,7 @@ public class MainFragment extends LazyFragment {
 
                     @Override
                     public void OnItemClick(View itemView, int position) {
-                        jumpToDetails(itemView,position);
+                        jumpToDetails(itemView, position);
                     }
 
                     @Override
@@ -296,7 +309,7 @@ public class MainFragment extends LazyFragment {
                 mainListAdapterL.setOnItemClickListener(new MainListAdapter.OnItemClickListener() {
                     @Override
                     public void OnItemClick(View itemView, int position) {
-                        jumpToDetails(itemView,position);
+                        jumpToDetails(itemView, position);
                     }
 
                     @Override

@@ -5,4 +5,4 @@
     android:layout_width="match_parent"
     android:gravity="center"
     android:layout_height="match_parent"
-    tools:context="com.zkx.multipleitemselection.MainActivity"/>
+    tools:context="com.angran.dushu.angranmall.product.AllPreductActivity"/>

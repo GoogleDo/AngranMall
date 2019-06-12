@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.angran.dushu.angranmall.R;
 
 
 public class ListScreenMenuAdapter extends BaseMenuAdapter{
@@ -16,7 +17,7 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter{
         this.mContext = context;
     }
 
-    private String[] mItems ={"附近","美食","智能排序","筛选"};
+    private String[] mItems ={"地区","商品","筛选","排序"};
 
     @Override
     public int getCount() {
