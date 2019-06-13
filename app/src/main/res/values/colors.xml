@@ -24,4 +24,8 @@
     <color name="mine_divier">#DBDBDB</color>
     <color name="order_pay_ways_text_color_1">#BE985A</color>
 
+    <color name="tag_text_selected_bg_color">#FFCF8D</color>
+    <color name="tag_text_unselected_bg_color">#F8F8F8</color>
+
+
 </resources>

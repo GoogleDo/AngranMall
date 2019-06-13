@@ -34,7 +34,12 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter{
 
     @Override
     public View getMenuView(int position, ViewGroup parent) {
-        // 真正开发过程中，不同的位置显示的布局不一样
+        if (position == 2) {
+            View menuView = LayoutInflater.from(mContext).inflate(R.layout.ui_list_data_screen_menu_screen,parent,false);
+
+            return menuView;
+        }
+        // 不同的位置显示的布局不一样
         TextView menuView = (TextView) LayoutInflater.from(mContext).inflate(R.layout.ui_list_data_screen_menu,parent,false);
         menuView.setText(mItems[position]);
         return menuView;

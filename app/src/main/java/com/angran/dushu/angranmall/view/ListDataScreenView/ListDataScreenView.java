@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.angran.dushu.angranmall.R;
 
 
 public class ListDataScreenView extends LinearLayout implements View.OnClickListener {
@@ -63,7 +64,13 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         mMenuTabView = new LinearLayout(mContext);
         mMenuTabView.setLayoutParams(new LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        mMenuTabView.setBackgroundColor(getResources().getColor(R.color.white));
         addView(mMenuTabView);
+
+        View divierLine = new View(mContext);
+        divierLine.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1));
+        divierLine.setBackgroundColor(getResources().getColor(R.color.mine_divier));
+        addView(divierLine);//加一个分割线
 
         // 1.2 创建 FrameLayout 用来存放 = 阴影（View） + 菜单内容布局(FrameLayout)
         mMenuMiddleView = new FrameLayout(mContext);
@@ -98,7 +105,8 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
             //获取菜单内容View的LayoutParams
             ViewGroup.LayoutParams params = mMenuContainerView.getLayoutParams();
             //设置菜单内容的高度
-            params.height = mMenuContainerHeight;
+//            params.height = mMenuContainerHeight;
+            params.height = -2;
             mMenuContainerView.setLayoutParams(params);
             // 进来的时候阴影不显示 ，内容也是不显示的（把它移上去）
             //放菜单内容

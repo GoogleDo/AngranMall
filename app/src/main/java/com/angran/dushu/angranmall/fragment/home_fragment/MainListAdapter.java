@@ -17,7 +17,7 @@ import java.util.List;
  * author: Create By dushu on 2019/4/7 22:20
  * email : dushu@bytedance.com
  */
-class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolder> {
+public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolder> {
 
     private List<Integer> mDatas;
     private Context context;
