@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashActivity"
+        <activity
+            android:name=".activity.SplashActivity"
             android:theme="@style/AppTheme.SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,31 +21,27 @@
         </activity>
 
 
-        <activity android:name=".activity.MainTabActivity"
-            android:launchMode="singleTask"
-            />
+        <activity
+            android:name=".activity.MainTabActivity"
+            android:launchMode="singleTask" />
 
-        <activity android:name=".login.RegisterActivity"
-            android:launchMode="singleTop"
-            />
+        <activity
+            android:name=".login.RegisterActivity"
+            android:launchMode="singleTop" />
 
-        <activity android:name=".login.LoginActivity"
-            android:launchMode="singleTop"
-            />
+        <activity
+            android:name=".login.LoginActivity"
+            android:launchMode="singleTop" />
 
-        <activity android:name=".details.DetailsActivity"
-            />
+        <activity android:name=".details.DetailsActivity" />
 
-        <activity android:name=".release.PurchaseOrderActivity"
-            />
-        <activity android:name=".release.QuotationPricesActivity"
-            />
-        <activity android:name=".release.ReleaseGoodsActivity"
-            />
-        <activity android:name=".release.DiscountActvity"
-            />
-        <activity android:name=".product.AllPreductActivity"
-            />
+        <activity android:name=".release.PurchaseOrderActivity" />
+        <activity android:name=".release.QuotationPricesActivity" />
+        <activity android:name=".release.ReleaseGoodsActivity" />
+        <activity android:name=".release.DiscountActvity" />
+        <activity android:name=".product.AllPreductActivity" />
+        <activity android:name=".financing.FinancingListActivity" />
+        <activity android:name=".financing.ApplyFinancingActivity" />
     </application>
 
 </manifest>

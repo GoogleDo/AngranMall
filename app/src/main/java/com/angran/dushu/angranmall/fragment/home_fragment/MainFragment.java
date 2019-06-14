@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.angran.dushu.angranmall.R;
 import com.angran.dushu.angranmall.details.DetailsActivity;
+import com.angran.dushu.angranmall.financing.FinancingListActivity;
 import com.angran.dushu.angranmall.product.AllPreductActivity;
 import com.angran.dushu.angranmall.utlis.CommenUtil;
 import com.angran.dushu.angranmall.utlis.DisplayUtil;
@@ -64,6 +65,7 @@ public class MainFragment extends LazyFragment {
     private MainListAdapter mainListAdapterR;
 
     private LinearLayout lyHy;//全部货源
+    private LinearLayout lyRz;//融资
 
     //当前显示在前台的 viewpager 中的page的索引
     private int mPageIndex = 0;
@@ -79,6 +81,15 @@ public class MainFragment extends LazyFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(activity, AllPreductActivity.class));
+            }
+        });
+
+
+        lyRz = (LinearLayout) findViewById(R.id.ly_rz);
+        lyRz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(activity, FinancingListActivity.class));
             }
         });
 

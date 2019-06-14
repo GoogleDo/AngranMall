@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_edit_background_color">
+
+    <com.angran.dushu.angranmall.view.TitleBar.GeneralTitleBar
+        android:id="@+id/financing_list_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="采购预付"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/login_code_text_color"
+                    android:layout_gravity="center"/>
+                
+                <TextView
+                    android:id="@+id/tv_apply_0"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/shape_apply"
+                    android:text="申请"
+                    android:textSize="13sp"
+                    android:textColor="@color/more_text_color"
+                    />
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="货物质押"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/login_code_text_color"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_apply_1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/shape_apply"
+                    android:text="申请"
+                    android:textSize="13sp"
+                    android:textColor="@color/more_text_color"
+                    />
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="应收保理"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/login_code_text_color"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_apply_2"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/shape_apply"
+                    android:text="申请"
+                    android:textSize="13sp"
+                    android:textColor="@color/more_text_color"
+                    />
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="票据融资"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/login_code_text_color"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_apply_3"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/shape_apply"
+                    android:text="申请"
+                    android:textSize="13sp"
+                    android:textColor="@color/more_text_color"
+                    />
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="理财和贷款"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/login_code_text_color"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_apply_4"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/shape_apply"
+                    android:text="申请"
+                    android:textSize="13sp"
+                    android:textColor="@color/more_text_color"
+                    />
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="贸易风险管理"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/login_code_text_color"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_apply_5"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/shape_apply"
+                    android:text="申请"
+                    android:textSize="13sp"
+                    android:textColor="@color/more_text_color"
+                    />
+
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="17dp"
+                android:text="风险提示：服务与责任由合作方承担。"
+                android:textSize="13sp"
+                android:textColor="@color/more_text_color"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
