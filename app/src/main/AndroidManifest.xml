@@ -42,6 +42,7 @@
         <activity android:name=".product.AllPreductActivity" />
         <activity android:name=".financing.FinancingListActivity" />
         <activity android:name=".financing.ApplyFinancingActivity" />
+        <activity android:name=".financing.FinancingSuccessActivity" />
     </application>
 
 </manifest>

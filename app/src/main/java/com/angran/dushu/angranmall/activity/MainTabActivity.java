@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.PopupMenu;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -53,6 +54,22 @@ public class MainTabActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.d(TAG,"onNewIntent");
+        if (intent != null) {
+            String page = intent.getExtras().getString("page");
+            if (!TextUtils.isEmpty(page) && TextUtils.equals(page, "main")) {
+                try {
+                    viewPager.setCurrentItem(0);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    }
 
     @Override
     public void initView() {
