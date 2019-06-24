@@ -259,104 +259,215 @@
             android:textColor="@color/login_code_text_color"
             android:textSize="15sp" />
 
-        <LinearLayout
-            android:id="@+id/ly_pay_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_pay_ways"
-            android:layout_alignStart="@id/tv_pay_ways"
-            android:background="@drawable/order_bg_select"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="13dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:text="直接采购"
-                android:textColor="@color/order_pay_ways_text_color_1"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="13dp"
-                android:text="免费对接"
-                android:textColor="@color/order_pay_ways_text_color_1"
-                android:textSize="10sp" />
-
-        </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ly_pay_2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_pay_ways"
-            android:layout_toRightOf="@id/ly_pay_1"
-            android:layout_marginLeft="11dp"
-            android:background="@drawable/order_bg_unselect"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="13dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:text="担保交易"
-                android:textColor="@color/more_text_color"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="13dp"
-                android:text="第三方监管资金"
-                android:textColor="@color/tab_text_color"
-                android:textSize="10sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ly_pay_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_pay_ways"
-            android:layout_toRightOf="@id/ly_pay_2"
-            android:layout_marginLeft="11dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/order_bg_unselect"
-            android:orientation="vertical">
+            >
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/ly_pay_1"
                 android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="13dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:text="供应链服务"
-                android:textColor="@color/more_text_color"
-                android:textSize="13sp" />
+                android:layout_below="@id/tv_pay_ways"
+                android:background="@drawable/order_bg_select"
+                android:orientation="vertical">
 
-            <TextView
+                <TextView
+                    android:id="@+id/tv_pay_way_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:text="直接采购"
+                    android:textColor="@color/order_pay_ways_text_color_1"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_pay_details_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="免费对接"
+                    android:textColor="@color/order_pay_ways_text_color_1"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_pay_2"
                 android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="13dp"
-                android:text="仅需20%定金"
-                android:textColor="@color/tab_text_color"
-                android:textSize="10sp" />
+                android:layout_below="@id/tv_pay_ways"
+                android:layout_toRightOf="@id/ly_pay_1"
+                android:layout_marginLeft="11dp"
+                android:background="@drawable/order_bg_unselect"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_pay_way_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:text="担保交易"
+                    android:textColor="@color/more_text_color"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_pay_details_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="第三方监管资金"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_pay_3"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pay_ways"
+                android:layout_toRightOf="@id/ly_pay_2"
+                android:layout_marginLeft="11dp"
+                android:background="@drawable/order_bg_unselect"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_pay_way_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:text="供应链服务"
+                    android:textColor="@color/more_text_color"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_pay_details_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="仅需20%定金"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ly_pay_1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/tv_pay_ways"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:background="@drawable/order_bg_select"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="13dp"-->
+                <!--android:layout_marginLeft="25dp"-->
+                <!--android:layout_marginRight="25dp"-->
+                <!--android:text="直接采购"-->
+                <!--android:textColor="@color/order_pay_ways_text_color_1"-->
+                <!--android:textSize="13sp" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginBottom="13dp"-->
+                <!--android:text="免费对接"-->
+                <!--android:textColor="@color/order_pay_ways_text_color_1"-->
+                <!--android:textSize="10sp" />-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ly_pay_2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/tv_pay_ways"-->
+            <!--android:layout_toRightOf="@id/ly_pay_1"-->
+            <!--android:layout_marginLeft="11dp"-->
+            <!--android:background="@drawable/order_bg_unselect"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="13dp"-->
+                <!--android:layout_marginLeft="25dp"-->
+                <!--android:layout_marginRight="25dp"-->
+                <!--android:text="担保交易"-->
+                <!--android:textColor="@color/more_text_color"-->
+                <!--android:textSize="13sp" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginBottom="13dp"-->
+                <!--android:text="第三方监管资金"-->
+                <!--android:textColor="@color/tab_text_color"-->
+                <!--android:textSize="10sp" />-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ly_pay_3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/tv_pay_ways"-->
+            <!--android:layout_toRightOf="@id/ly_pay_2"-->
+            <!--android:layout_marginLeft="11dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="@drawable/order_bg_unselect"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="13dp"-->
+                <!--android:layout_marginLeft="25dp"-->
+                <!--android:layout_marginRight="25dp"-->
+                <!--android:text="供应链服务"-->
+                <!--android:textColor="@color/more_text_color"-->
+                <!--android:textSize="13sp" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginBottom="13dp"-->
+                <!--android:text="仅需20%定金"-->
+                <!--android:textColor="@color/tab_text_color"-->
+                <!--android:textSize="10sp" />-->
+
+        <!--</LinearLayout>-->
 
 
     </RelativeLayout>

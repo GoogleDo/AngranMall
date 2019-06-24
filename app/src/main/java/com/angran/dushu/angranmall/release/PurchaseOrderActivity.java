@@ -32,6 +32,21 @@ public class PurchaseOrderActivity extends BaseActivity {
     private TextView tvReleaseGuide;
     private LinearLayout lyAddService;
 
+    private LinearLayout lyPay_1;
+    private TextView tvPayWay_1;
+    private TextView tvPayDetails_1;
+
+    private LinearLayout lyPay_2;
+    private TextView tvPayWay_2;
+    private TextView tvPayDetails_2;
+
+    private LinearLayout lyPay_3;
+    private TextView tvPayWay_3;
+    private TextView tvPayDetails_3;
+
+
+
+
     @Override
     public void initView() {
         super.initView();
@@ -45,6 +60,21 @@ public class PurchaseOrderActivity extends BaseActivity {
                 startActivity(new Intent(PurchaseOrderActivity.this, ChooseServiceActvity.class));
             }
         });
+
+        lyPay_1 = findViewById(R.id.ly_pay_1);
+        lyPay_2 = findViewById(R.id.ly_pay_2);
+        lyPay_3 = findViewById(R.id.ly_pay_3);
+
+        tvPayWay_1 = findViewById(R.id.tv_pay_way_1);
+        tvPayWay_2 = findViewById(R.id.tv_pay_way_2);
+        tvPayWay_3 = findViewById(R.id.tv_pay_way_3);
+
+        tvPayDetails_1 = findViewById(R.id.tv_pay_details_1);
+        tvPayDetails_2 = findViewById(R.id.tv_pay_details_2);
+        tvPayDetails_3 = findViewById(R.id.tv_pay_details_3);
+
+        //交易方式--互斥选中状态
+        initPayAction();
 
 
 
@@ -67,6 +97,60 @@ public class PurchaseOrderActivity extends BaseActivity {
             }
         },12,spStr.length() , Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvReleaseGuide.setText(spStr);
+    }
+
+    private void initPayAction() {
+        lyPay_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lyPay_1.setBackgroundResource(R.drawable.order_bg_select);
+                tvPayWay_1.setTextColor(Color.parseColor("#BE985A"));
+                tvPayDetails_1.setTextColor(Color.parseColor("#BE985A"));
+
+                lyPay_2.setBackgroundResource(R.drawable.order_bg_unselect);
+                tvPayWay_2.setTextColor(Color.parseColor("#565656"));
+                tvPayDetails_2.setTextColor(Color.parseColor("#A0A0A0"));
+
+                lyPay_3.setBackgroundResource(R.drawable.order_bg_unselect);
+                tvPayWay_3.setTextColor(Color.parseColor("#565656"));
+                tvPayDetails_3.setTextColor(Color.parseColor("#A0A0A0"));
+            }
+        });
+
+        lyPay_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lyPay_1.setBackgroundResource(R.drawable.order_bg_unselect);
+                tvPayWay_1.setTextColor(Color.parseColor("#565656"));
+                tvPayDetails_1.setTextColor(Color.parseColor("#A0A0A0"));
+
+                lyPay_2.setBackgroundResource(R.drawable.order_bg_select);
+                tvPayWay_2.setTextColor(Color.parseColor("#BE985A"));
+                tvPayDetails_2.setTextColor(Color.parseColor("#BE985A"));
+
+                lyPay_3.setBackgroundResource(R.drawable.order_bg_unselect);
+                tvPayWay_3.setTextColor(Color.parseColor("#565656"));
+                tvPayDetails_3.setTextColor(Color.parseColor("#A0A0A0"));
+            }
+        });
+
+        lyPay_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lyPay_1.setBackgroundResource(R.drawable.order_bg_unselect);
+                tvPayWay_1.setTextColor(Color.parseColor("#565656"));
+                tvPayDetails_1.setTextColor(Color.parseColor("#A0A0A0"));
+
+                lyPay_2.setBackgroundResource(R.drawable.order_bg_unselect);
+                tvPayWay_2.setTextColor(Color.parseColor("#565656"));
+                tvPayDetails_2.setTextColor(Color.parseColor("#A0A0A0"));
+
+                lyPay_3.setBackgroundResource(R.drawable.order_bg_select);
+                tvPayWay_3.setTextColor(Color.parseColor("#BE985A"));
+                tvPayDetails_3.setTextColor(Color.parseColor("#BE985A"));
+            }
+        });
+
     }
 
     private void initTitleBar() {
