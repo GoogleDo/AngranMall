@@ -43,6 +43,7 @@
         <activity android:name=".financing.FinancingListActivity" />
         <activity android:name=".financing.ApplyFinancingActivity" />
         <activity android:name=".financing.FinancingSuccessActivity" />
+        <activity android:name=".release.ChooseServiceActvity" />
     </application>
 
 </manifest>
