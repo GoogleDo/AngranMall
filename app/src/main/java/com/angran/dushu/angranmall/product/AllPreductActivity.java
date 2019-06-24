@@ -25,6 +25,7 @@ import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 /**
  * author: Create By dushu on 2019/6/11 17:28
  * email : dushu@bytedance.com
+ * 全部货源页面
  */
 public class AllPreductActivity extends BaseActivity {
 
@@ -109,5 +110,9 @@ public class AllPreductActivity extends BaseActivity {
     private void jumpToDetails(View itemView, int position) {
         Intent intent = new Intent(AllPreductActivity.this, DetailsActivity.class);
         startActivity(intent);
+    }
+
+    public void closeMenuView() {
+        mListDataScreenView.closeMenu();
     }
 }

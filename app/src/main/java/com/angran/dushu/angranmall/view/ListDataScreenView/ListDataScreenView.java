@@ -184,7 +184,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
     /**
      * 关闭菜单
      */
-    private void closeMenu() {
+    public void closeMenu() {
         //动画正在执行，点击无效
         if (mAnimatorExecute) {
             return;
@@ -224,7 +224,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
      * @param position
      * @param tabView
      */
-    private void openMenu(final int position, final View tabView) {
+    public void openMenu(final int position, final View tabView) {
         //动画正在执行，点击无效
         if (mAnimatorExecute) {
             return;
@@ -260,6 +260,7 @@ public class ListDataScreenView extends LinearLayout implements View.OnClickList
         });
         alphaAnimator.start();
     }
+
 
     @Override
     public void onClick(View v) {
