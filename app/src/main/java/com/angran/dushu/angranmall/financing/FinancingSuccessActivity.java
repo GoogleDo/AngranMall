@@ -24,6 +24,7 @@ public class FinancingSuccessActivity extends BaseActivity {
     @Override
     public void initView() {
         super.initView();
+        setContentView(R.layout.activity_financinig_success);
         initTitleBar();
         btnBackToMain = findViewById(R.id.btn_back_to_main);
         btnBackToMain.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +39,7 @@ public class FinancingSuccessActivity extends BaseActivity {
 
 
     private void initTitleBar() {
-        titleBar = findViewById(R.id.apply_financing_titlebar);
+        titleBar = findViewById(R.id.financing_success_titlebar);
         titleBar.setLeftButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

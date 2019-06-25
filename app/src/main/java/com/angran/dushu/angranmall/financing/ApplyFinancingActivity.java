@@ -33,7 +33,7 @@ public class ApplyFinancingActivity extends BaseActivity {
     }
 
     private void initTitleBar() {
-        titleBar = findViewById(R.id.financing_success_titlebar);
+        titleBar = findViewById(R.id.apply_financing_titlebar);
         titleBar.setLeftButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

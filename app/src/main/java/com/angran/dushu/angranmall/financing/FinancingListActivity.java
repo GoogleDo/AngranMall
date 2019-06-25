@@ -1,6 +1,7 @@
 package com.angran.dushu.angranmall.financing;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 
 import com.angran.dushu.angranmall.R;
@@ -13,6 +14,7 @@ import base.BaseActivity;
  * email : dushu@bytedance.com
  */
 public class FinancingListActivity extends BaseActivity implements View.OnClickListener {
+    private final static String TAG ="FinancingListActivity";
 
     private GeneralTitleBar titleBar;
 
@@ -37,6 +39,7 @@ public class FinancingListActivity extends BaseActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        Log.e(TAG, "onClick");
         switch (v.getId()) {
             case R.id.tv_apply_0:
             case R.id.tv_apply_1:
