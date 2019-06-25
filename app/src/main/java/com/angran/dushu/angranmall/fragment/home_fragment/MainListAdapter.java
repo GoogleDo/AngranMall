@@ -57,6 +57,9 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainLi
     @Override
     public void onBindViewHolder(@NonNull MainListHolder holder, int position) {
         holder.ivAvater.setImageResource(mDatas.get(position));
+        if (position == getItemCount()) {
+            holder.vItemDivier.setVisibility(View.GONE);
+        }
         setEvent(holder);
     }
 
@@ -92,10 +95,12 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainLi
     class MainListHolder extends RecyclerView.ViewHolder {
 
         ImageView ivAvater;
+        View vItemDivier;
 
         public MainListHolder(View itemView) {
             super(itemView);
             ivAvater = itemView.findViewById(R.id.iv_item_avater);
+            vItemDivier = itemView.findViewById(R.id.item_divier);
         }
     }
 
