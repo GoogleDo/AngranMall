@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.angran.dushu.angranmall.R;
 import com.angran.dushu.angranmall.details.DetailsActivity;
-import com.angran.dushu.angranmall.fragment.home_fragment.MainListAdapter;
+import com.angran.dushu.angranmall.fragment.home_fragment.MainListAdapterL;
 import com.angran.dushu.angranmall.view.ListDataScreenView.ListDataScreenView;
 import com.angran.dushu.angranmall.view.ListDataScreenView.ListScreenMenuAdapter;
 import com.angran.dushu.angranmall.view.TitleBar.GeneralTitleBar;
@@ -36,7 +36,7 @@ public class AllPreductActivity extends BaseActivity {
     private static boolean isFirstEnter = true;
 
     private List<Integer> drawableIDL = new ArrayList<>();
-    private MainListAdapter mainListAdapterL;
+    private MainListAdapterL mainListAdapterL;
 
     @Override
     public void initView() {
@@ -69,8 +69,8 @@ public class AllPreductActivity extends BaseActivity {
             recyclerView.addItemDecoration(new DividerItemDecoration(this, VERTICAL));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             initData();
-            recyclerView.setAdapter(mainListAdapterL =new MainListAdapter(drawableIDL, this));
-            mainListAdapterL.setOnItemClickListener(new MainListAdapter.OnItemClickListener() {
+            recyclerView.setAdapter(mainListAdapterL =new MainListAdapterL(drawableIDL, this));
+            mainListAdapterL.setOnItemClickListener(new MainListAdapterL.OnItemClickListener() {
 
                 @Override
                 public void OnItemClick(View itemView, int position) {

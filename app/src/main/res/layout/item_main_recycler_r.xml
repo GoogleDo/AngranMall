@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:id="@+id/tv_product_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/title_color"
+        android:textSize="15sp"
+        android:text="豫能电厂采购9月优质动力煤"
+        android:drawableLeft="@drawable/member"
+        android:drawablePadding="6dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="府谷县l 6000打卡 0.6硫 23挥发"
+        android:textSize="13sp"
+        android:textColor="@color/tab_text_color"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="榆林煤炭进出口集团    陈亮"
+        android:textSize="13sp"
+        android:textColor="@color/more_text_color"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="11dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="22dp">
+
+        <TextView
+            android:id="@+id/tv_left_cgl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="采购量：5 万吨"
+            android:textSize="13sp"
+            android:layout_gravity="left"
+            android:textColor="@color/tab_text_color"
+            />
+
+        <TextView
+            android:id="@+id/tv_center_bj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已有 8 条报价"
+            android:textSize="13sp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/tab_text_color"
+            />
+
+        <TextView
+            android:id="@+id/tv_right_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报价剩余 1 小时"
+            android:textSize="13sp"
+            android:layout_gravity="right"
+            android:textColor="@color/tab_text_color"
+            />
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/item_divier_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/mine_divier"/>
+
+</LinearLayout>

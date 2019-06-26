@@ -1,7 +1,6 @@
 package com.angran.dushu.angranmall.fragment.home_fragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -12,7 +11,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -38,8 +36,6 @@ import com.shizhefei.view.indicator.slidebar.ScrollBar;
 import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -61,8 +57,8 @@ public class MainFragment extends LazyFragment {
     private Activity activity;
 
     private static boolean isFirstEnter = true;
-    private MainListAdapter mainListAdapterL;
-    private MainListAdapter mainListAdapterR;
+    private MainListAdapterL mainListAdapterL;
+    private MainListAdapterR mainListAdapterR;
 
     private LinearLayout lyHy;//全部货源
     private LinearLayout lyRz;//融资
@@ -125,20 +121,27 @@ public class MainFragment extends LazyFragment {
                 refreshLayout.getLayout().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        MainListAdapter adapter;
                         boolean isLeflList = mPageIndex == 0 ? true : false;
                         if (isLeflList) {
-                            adapter = mainListAdapterL;
+                            MainListAdapterL adapter = mainListAdapterL;
+                            if (adapter.getItemCount() > 12) {
+                                Toast.makeText(getApplicationContext(), "数据全部加载完毕", Toast.LENGTH_SHORT).show();
+                                refreshLayout.finishLoadMoreWithNoMoreData();//设置之后，将不会再触发加载事件
+                            } else {
+                                adapter.addItem(loadMore(true));
+                                refreshLayout.finishLoadMore();
+                            }
                         } else {
-                            adapter = mainListAdapterR;
+                            MainListAdapterR adapter = mainListAdapterR;
+                            if (adapter.getItemCount() > 12) {
+                                Toast.makeText(getApplicationContext(), "数据全部加载完毕", Toast.LENGTH_SHORT).show();
+                                refreshLayout.finishLoadMoreWithNoMoreData();//设置之后，将不会再触发加载事件
+                            } else {
+                                adapter.addItem(loadMore(false));
+                                refreshLayout.finishLoadMore();
+                            }
                         }
-                        if (adapter.getItemCount() > 12) {
-                            Toast.makeText(getApplicationContext(), "数据全部加载完毕", Toast.LENGTH_SHORT).show();
-                            refreshLayout.finishLoadMoreWithNoMoreData();//设置之后，将不会再触发加载事件
-                        } else {
-                            adapter.addItem(loadMore(isLeflList));
-                            refreshLayout.finishLoadMore();
-                        }
+
                     }
 
                 }, 1000);
@@ -265,7 +268,7 @@ public class MainFragment extends LazyFragment {
     private class MyRecyleIndicatorAdapter extends IndicatorViewPager.IndicatorViewPagerAdapter {
         private String[] versions = {"推荐货源", "最新采购"};
         private List<Integer> drawableIDL = new ArrayList<>();
-        private List<Integer> drawableIDR = new ArrayList<>();
+        private List<Boolean> drawableIDR = new ArrayList<>();
 
         @Override
         public int getCount() {
@@ -301,8 +304,8 @@ public class MainFragment extends LazyFragment {
             initData(position);
             if (position == 0) {
                 //设置适配器
-                recyclerView.setAdapter(mainListAdapterL = new MainListAdapter(drawableIDL, getContext()));
-                mainListAdapterL.setOnItemClickListener(new MainListAdapter.OnItemClickListener() {
+                recyclerView.setAdapter(mainListAdapterL = new MainListAdapterL(drawableIDL, getContext()));
+                mainListAdapterL.setOnItemClickListener(new MainListAdapterL.OnItemClickListener() {
 
                     @Override
                     public void OnItemClick(View itemView, int position) {
@@ -316,8 +319,8 @@ public class MainFragment extends LazyFragment {
                 });
             } else {
                 //设置适配器
-                recyclerView.setAdapter(mainListAdapterR = new MainListAdapter(drawableIDR, getContext()));
-                mainListAdapterL.setOnItemClickListener(new MainListAdapter.OnItemClickListener() {
+                recyclerView.setAdapter(mainListAdapterR = new MainListAdapterR(drawableIDR, getContext()));
+                mainListAdapterL.setOnItemClickListener(new MainListAdapterL.OnItemClickListener() {
                     @Override
                     public void OnItemClick(View itemView, int position) {
                         jumpToDetails(itemView, position);
@@ -348,11 +351,11 @@ public class MainFragment extends LazyFragment {
                 drawableIDL.add(R.drawable.list1);
                 drawableIDL.add(R.drawable.list2);
             } else {
-                drawableIDR.add(R.drawable.list3);
-                drawableIDR.add(R.drawable.list4);
-                drawableIDR.add(R.drawable.list3);
-                drawableIDR.add(R.drawable.list3);
-                drawableIDR.add(R.drawable.list4);
+                drawableIDR.add(true);
+                drawableIDR.add(false);
+                drawableIDR.add(true);
+                drawableIDR.add(true);
+                drawableIDR.add(false);
             }
         }
 
@@ -377,22 +380,26 @@ public class MainFragment extends LazyFragment {
 
     }
 
-    private List<Integer> loadMore(boolean isLeftList) {
-        List<Integer> list = new ArrayList<>();
+    private List loadMore(boolean isLeftList) {
+
         if (isLeftList) {
+            List<Integer> list = new ArrayList<>();
             list.add(R.drawable.list1);
             list.add(R.drawable.list2);
             list.add(R.drawable.list1);
             list.add(R.drawable.list1);
             list.add(R.drawable.list2);
+            return list;
         } else {
-            list.add(R.drawable.list3);
-            list.add(R.drawable.list4);
-            list.add(R.drawable.list3);
-            list.add(R.drawable.list3);
-            list.add(R.drawable.list4);
+            List<Boolean> list = new ArrayList<>();
+            list.add(true);
+            list.add(true);
+            list.add(false);
+            list.add(true);
+            list.add(false);
+            return list;
         }
-        return list;
+
     }
 
 }

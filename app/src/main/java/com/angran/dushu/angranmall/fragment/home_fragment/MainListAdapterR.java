@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.angran.dushu.angranmall.R;
 
@@ -17,23 +18,24 @@ import java.util.List;
  * author: Create By dushu on 2019/4/7 22:20
  * email : dushu@bytedance.com
  */
-public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainListHolder> {
+public class MainListAdapterR extends RecyclerView.Adapter<MainListAdapterR.MainListHolderR> {
 
-    private List<Integer> mDatas;
+    private List<Boolean> mDatas;
     private Context context;
     private LayoutInflater inflater;
     private OnItemClickListener listener;
 
-    public MainListAdapter(List<Integer> mDatas, Context context) {
+    public MainListAdapterR(List<Boolean> mDatas, Context context) {
         this.mDatas = mDatas;
         this.context = context;
         inflater = LayoutInflater.from(context);
-        Log.e("MainListAdapter", "ItemCount = "+getItemCount());
+        Log.e("MainListAdapterR", "MainListAdapterR.ItemCount = "+getItemCount());
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
+
 
     public interface OnItemClickListener {
         void OnItemClick(View itemView, int position);
@@ -43,9 +45,9 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainLi
 
     @NonNull
     @Override
-    public MainListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.item_main_recycler,parent,false);
-        MainListHolder viewHolder = new MainListHolder(itemView);
+    public MainListHolderR onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = inflater.inflate(R.layout.item_main_recycler_r,parent,false);
+        MainListHolderR viewHolder = new MainListHolderR(itemView);
         return viewHolder;
     }
 
@@ -55,15 +57,17 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainLi
      * 在此方法中完成对view显示内容，设置数据的工作
      */
     @Override
-    public void onBindViewHolder(@NonNull MainListHolder holder, int position) {
-        holder.ivAvater.setImageResource(mDatas.get(position));
+    public void onBindViewHolder(@NonNull MainListHolderR holder, int position) {
+        if (!mDatas.get(position)) {
+            holder.tvProductTitle.setCompoundDrawables(null,null,null,null);
+        }
         if (position == getItemCount()) {
             holder.vItemDivier.setVisibility(View.GONE);
         }
         setEvent(holder);
     }
 
-    public void setEvent(final MainListHolder holder){
+    public void setEvent(final MainListHolderR holder){
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,22 +96,22 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainLi
 
 
 
-    class MainListHolder extends RecyclerView.ViewHolder {
+    public static class MainListHolderR extends RecyclerView.ViewHolder {
 
-        ImageView ivAvater;
+        TextView tvProductTitle;
         View vItemDivier;
 
-        public MainListHolder(View itemView) {
+        public MainListHolderR(View itemView) {
             super(itemView);
-            ivAvater = itemView.findViewById(R.id.iv_item_avater);
-            vItemDivier = itemView.findViewById(R.id.item_divier);
+            tvProductTitle = itemView.findViewById(R.id.tv_product_title);
+            vItemDivier = itemView.findViewById(R.id.item_divier_line);
         }
     }
 
     /**
      * 插入数据的方法 (带索引)
      */
-    public void addItem(int pos, int obj) {
+    public void addItem(int pos, boolean obj) {
         mDatas.add(pos, obj);
         //增加数据，并且提示更新
         notifyItemInserted(pos);
@@ -116,7 +120,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainLi
     /**
      * 增加数据的方法 (不带索引)
      */
-    public void addItem(List<Integer> list) {
+    public void addItem(List<Boolean> list) {
         mDatas.addAll(list);
         //增加数据，并且提示更新
         notifyDataSetChanged();
