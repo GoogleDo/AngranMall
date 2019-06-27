@@ -44,6 +44,7 @@
         <activity android:name=".financing.ApplyFinancingActivity" />
         <activity android:name=".financing.FinancingSuccessActivity" />
         <activity android:name=".release.ChooseServiceActvity" />
+        <activity android:name=".purchase.PurchaseListActivity" />
     </application>
 
 </manifest>

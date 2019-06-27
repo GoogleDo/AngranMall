@@ -1,4 +1,4 @@
-package com.angran.dushu.angranmall.product;
+package com.angran.dushu.angranmall.purchase;
 
 import android.content.Intent;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -8,8 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.angran.dushu.angranmall.R;
-import com.angran.dushu.angranmall.details.DetailsActivity;
-import com.angran.dushu.angranmall.fragment.home_fragment.MainListAdapterL;
+import com.angran.dushu.angranmall.fragment.home_fragment.MainListAdapterR;
 import com.angran.dushu.angranmall.view.ListDataScreenView.ListDataScreenView;
 import com.angran.dushu.angranmall.view.ListDataScreenView.ListScreenMenuAdapter;
 import com.angran.dushu.angranmall.view.TitleBar.GeneralTitleBar;
@@ -23,11 +22,11 @@ import base.BaseActivity;
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
 /**
- * author: Create By dushu on 2019/6/11 17:28
+ * author: Create By dushu on 2019/6/27 11:51
  * email : dushu@bytedance.com
- * 全部货源页面
  */
-public class AllPreductActivity extends BaseActivity {
+public class PurchaseListActivity extends BaseActivity {
+
 
     private GeneralTitleBar titleBar;
     private ListDataScreenView mListDataScreenView;
@@ -35,19 +34,19 @@ public class AllPreductActivity extends BaseActivity {
     private RefreshLayout mRefreshLayout;
     private static boolean isFirstEnter = true;
 
-    private List<Integer> drawableIDL = new ArrayList<>();
-    private MainListAdapterL mainListAdapterL;
+    private List<Boolean> drawableIDR = new ArrayList<>();
+    private MainListAdapterR mainListAdapterR;
 
     @Override
     public void initView() {
         super.initView();
-        setContentView(R.layout.activity_all_product);
+        setContentView(R.layout.activity_purchase_list);
         initTitleBar();
 
-        mListDataScreenView = findViewById(R.id.list_data_screen_view);
-        mListDataScreenView.setAdapter(new ListScreenMenuAdapter(this,new String[]{"地区","商品","筛选","排序"}));
+        mListDataScreenView = findViewById(R.id.purchase_list_data_screen_view);
+        mListDataScreenView.setAdapter(new ListScreenMenuAdapter(this, new String[]{"地区", "商品", "筛选", "排序"}));
 
-        mRefreshLayout = findViewById(R.id.refreshLayout_product);
+        mRefreshLayout = findViewById(R.id.refreshLayout_purchase_list);
         mRefreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
         mRefreshLayout.setEnableFooterFollowWhenNoMoreData(true);
 
@@ -58,19 +57,18 @@ public class AllPreductActivity extends BaseActivity {
         }
         initRecyclerView();
 
-
     }
 
     private void initRecyclerView() {
-        View view = findViewById(R.id.product_recyler_view);
+        View view = findViewById(R.id.purchase_list_recyler_view);
         if (view instanceof RecyclerView) {
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.addItemDecoration(new DividerItemDecoration(this, VERTICAL));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             initData();
-            recyclerView.setAdapter(mainListAdapterL =new MainListAdapterL(drawableIDL, this));
-            mainListAdapterL.setOnItemClickListener(new MainListAdapterL.OnItemClickListener() {
+            recyclerView.setAdapter(mainListAdapterR = new MainListAdapterR(drawableIDR, this));
+            mainListAdapterR.setOnItemClickListener(new MainListAdapterR.OnItemClickListener() {
 
                 @Override
                 public void OnItemClick(View itemView, int position) {
@@ -86,30 +84,30 @@ public class AllPreductActivity extends BaseActivity {
     }
 
     private void initData() {
-        drawableIDL.add(R.drawable.list1);
-        drawableIDL.add(R.drawable.list2);
-        drawableIDL.add(R.drawable.list1);
-        drawableIDL.add(R.drawable.list1);
-        drawableIDL.add(R.drawable.list2);
+        drawableIDR.add(false);
+        drawableIDR.add(true);
+        drawableIDR.add(true);
+        drawableIDR.add(false);
+        drawableIDR.add(true);
     }
 
 
     private void initTitleBar() {
-        titleBar = findViewById(R.id.all_product_titlebar);
+        titleBar = findViewById(R.id.purchase_list_titlebar);
         titleBar.setLeftButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        titleBar.setTitleText("全部货源");
+        titleBar.setTitleText("采购大厅");
         titleBar.showDivierLine(true);
     }
 
-    //跳转到商品详情页
+    //跳转到采购详情页
     private void jumpToDetails(View itemView, int position) {
-        Intent intent = new Intent(AllPreductActivity.this, DetailsActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(PurchaseListActivity.this, PurchaseDetailsActivity.class);
+//        startActivity(intent);
     }
 
     public void closeMenuView() {

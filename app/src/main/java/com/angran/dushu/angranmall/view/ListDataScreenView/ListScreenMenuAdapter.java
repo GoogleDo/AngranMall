@@ -10,13 +10,17 @@ import android.widget.TextView;
 
 import com.angran.dushu.angranmall.R;
 import com.angran.dushu.angranmall.product.AllPreductActivity;
+import com.angran.dushu.angranmall.purchase.PurchaseListActivity;
 
 
 public class ListScreenMenuAdapter extends BaseMenuAdapter{
     private Context mContext;
 
-    public ListScreenMenuAdapter(Context context){
+    public ListScreenMenuAdapter(Context context,String[] mItems){
         this.mContext = context;
+        if (mItems != null) {
+            this.mItems = mItems;
+        }
     }
 
     private String[] mItems ={"地区","商品","筛选","排序"};
@@ -45,8 +49,9 @@ public class ListScreenMenuAdapter extends BaseMenuAdapter{
                     if (mContext != null && mContext instanceof AllPreductActivity) {
                         //这里应该先把筛选条件传递出去再关闭，为了演示 先这么写
                         ((AllPreductActivity) mContext).closeMenuView();
+                    } else if (mContext != null && mContext instanceof PurchaseListActivity) {
+                        ((PurchaseListActivity) mContext).closeMenuView();
                     }
-
                 }
             });
             return menuView;

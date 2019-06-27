@@ -22,6 +22,7 @@ import com.angran.dushu.angranmall.R;
 import com.angran.dushu.angranmall.details.DetailsActivity;
 import com.angran.dushu.angranmall.financing.FinancingListActivity;
 import com.angran.dushu.angranmall.product.AllPreductActivity;
+import com.angran.dushu.angranmall.purchase.PurchaseListActivity;
 import com.angran.dushu.angranmall.utlis.CommenUtil;
 import com.angran.dushu.angranmall.utlis.DisplayUtil;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -62,6 +63,7 @@ public class MainFragment extends LazyFragment {
 
     private LinearLayout lyHy;//全部货源
     private LinearLayout lyRz;//融资
+    private LinearLayout lyCg;//采购大厅
 
     //当前显示在前台的 viewpager 中的page的索引
     private int mPageIndex = 0;
@@ -86,6 +88,13 @@ public class MainFragment extends LazyFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(activity, FinancingListActivity.class));
+            }
+        });
+        lyCg = (LinearLayout) findViewById(R.id.ly_cg);
+        lyCg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(activity, PurchaseListActivity.class));
             }
         });
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.angran.dushu.angranmall.view.TitleBar.GeneralTitleBar
+        android:id="@+id/purchase_list_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout_purchase_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="44dp"
+        android:layout_below="@id/purchase_list_titlebar"
+        android:background="@color/login_edit_background_color"
+        app:srlAccentColor="@android:color/white"
+        app:srlEnableLoadMore="false"
+        app:srlPrimaryColor="@color/colorPrimary">
+
+
+
+        <com.scwang.smartrefresh.header.FunGameHitBlockHeader
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/purchase_list_recyler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            />
+
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+    <com.angran.dushu.angranmall.view.ListDataScreenView.ListDataScreenView
+        android:id="@+id/purchase_list_data_screen_view"
+        android:layout_below="@id/purchase_list_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+</RelativeLayout>

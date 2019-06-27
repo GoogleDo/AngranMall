@@ -820,6 +820,8 @@
                     android:layout_height="45dp"
                     android:background="@color/white"/>
 
+
+
                 <android.support.v4.view.ViewPager
                     android:id="@+id/goods_list_viewPager"
                     android:layout_width="match_parent"
@@ -838,6 +840,7 @@
             app:srlAccentColor="#888"
             app:srlClassicsSpinnerStyle="Translate"
             app:srlDrawableProgress="@drawable/ic_progress_puzzle"/>
+
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
